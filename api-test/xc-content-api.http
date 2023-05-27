@@ -1,0 +1,14 @@
+###
+GET /content/course/list
+
+
+
+### 查询课程信息
+POST http://localhost:63040/content/course/list
+Content-Type: application/json
+
+{
+  "audtiStatus": "202004",
+  "courseName": "java",
+  "publishStatus": ""
+}
