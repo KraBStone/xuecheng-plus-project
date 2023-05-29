@@ -2,6 +2,7 @@ package com.xuecheng.content.api;
 
 import com.xuecheng.content.mapper.CourseCategoryMapper;
 import com.xuecheng.content.model.dto.CourseCategoryTreeDto;
+import com.xuecheng.content.service.CourseCategoryService;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,13 @@ import java.util.List;
 @Slf4j
 public class CourseCategoryController {
 
+    @Autowired
+    CourseCategoryService courseCategoryService;
+
     @GetMapping("/course-category/tree-nodes")
     public List<CourseCategoryTreeDto> queryTreeNodes(){
-        return null;
+
+
+        return courseCategoryService.queryTreeNodes("1");
     }
 }
