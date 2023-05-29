@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Data
 @Slf4j
-public class CourseCategoryTreeDto extends CourseCategory implements Serializable {
+public class CourseCategoryTreeDto extends CourseCategory implements java.io.Serializable {
 
     List<CourseCategory> childrenTreeNodes;
 
