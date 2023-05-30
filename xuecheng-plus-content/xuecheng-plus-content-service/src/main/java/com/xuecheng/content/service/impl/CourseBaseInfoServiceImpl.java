@@ -2,6 +2,7 @@ package com.xuecheng.content.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.xuecheng.base.execption.XueChengPlusException;
 import com.xuecheng.base.model.PageParams;
 import com.xuecheng.base.model.PageResult;
 import com.xuecheng.content.mapper.CourseBaseMapper;
@@ -200,7 +201,8 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
         //如果课程收费但价格没有填写
         if (charge.equals("201001")){
             if (courseMarketNew.getPrice() == null || courseMarketNew.getPrice() <=0){
-                throw new RuntimeException("课程价格不能为空且必须大于0");
+               // throw new RuntimeException("课程价格不能为空且必须大于0");
+                XueChengPlusException.cast("课程价格不能为空且必须大于0");
             }
 
         }
