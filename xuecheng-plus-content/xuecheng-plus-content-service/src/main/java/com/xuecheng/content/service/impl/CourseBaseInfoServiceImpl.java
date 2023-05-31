@@ -198,7 +198,6 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
         Long courseId = editCourseDto.getId();
 
         //查询课程
-
         CourseBase courseBase = courseBaseMapper.selectById(courseId);
 
         if (courseBase == null){
@@ -217,7 +216,6 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
 
 
         //数据封装
-
         BeanUtils.copyProperties(editCourseDto,courseBase);
 
         //修改时间
@@ -229,6 +227,17 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
         if (i<=0){
             XueChengPlusException.cast("修改课程失败");
         }
+
+        //定义营销信息属性
+        CourseMarket courseMarketNew = new CourseMarket();
+
+        //将页面获取的属性拷贝到新属性courseMarketNew
+        BeanUtils.copyProperties(editCourseDto,courseMarketNew);
+        courseMarketNew.setId(courseId);
+
+        //保存营销信息
+        saveCourseMarket(courseMarketNew);
+
 
         //查询课程信息
         CourseBaseInfoDto courseBaseInfo = getCourseBaseInfo(courseId);
