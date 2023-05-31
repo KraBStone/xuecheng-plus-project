@@ -161,7 +161,7 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
     }
 
     //查询课程信息
-    public CourseBaseInfoDto getCourseBaseInfo(long courseId){
+    public CourseBaseInfoDto getCourseBaseInfo(Long courseId){
 
         //从课程基础信息表查询
         CourseBase courseBase = courseBaseMapper.selectById(courseId);
