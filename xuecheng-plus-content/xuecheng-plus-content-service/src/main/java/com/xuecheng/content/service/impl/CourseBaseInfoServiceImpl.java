@@ -86,34 +86,34 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
     @Override
     public CourseBaseInfoDto createCourseBase(Long companyId, AddCourseDto dto) {
 
-        //参数的合法性校验
-        if (StringUtils.isBlank(dto.getName())) {
-            throw new RuntimeException("课程名称为空");
-        }
-
-        if (StringUtils.isBlank(dto.getMt())) {
-            throw new RuntimeException("课程分类为空");
-        }
-
-        if (StringUtils.isBlank(dto.getSt())) {
-            throw new RuntimeException("课程分类为空");
-        }
-
-        if (StringUtils.isBlank(dto.getGrade())) {
-            throw new RuntimeException("课程等级为空");
-        }
-
-        if (StringUtils.isBlank(dto.getTeachmode())) {
-            throw new RuntimeException("教育模式为空");
-        }
-
-        if (StringUtils.isBlank(dto.getUsers())) {
-            throw new RuntimeException("适应人群为空");
-        }
-
-        if (StringUtils.isBlank(dto.getCharge())) {
-            throw new RuntimeException("收费规则为空");
-        }
+//        //参数的合法性校验
+//        if (StringUtils.isBlank(dto.getName())) {
+//            throw new RuntimeException("课程名称为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getMt())) {
+//            throw new RuntimeException("课程分类为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getSt())) {
+//            throw new RuntimeException("课程分类为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getGrade())) {
+//            throw new RuntimeException("课程等级为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getTeachmode())) {
+//            throw new RuntimeException("教育模式为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getUsers())) {
+//            throw new RuntimeException("适应人群为空");
+//        }
+//
+//        if (StringUtils.isBlank(dto.getCharge())) {
+//            throw new RuntimeException("收费规则为空");
+//        }
 
         //向课程基本信息表 course_base写入数据
 
@@ -195,7 +195,8 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
         //参数的合法性校验
         String charge = courseMarketNew.getCharge();
         if (StringUtils.isEmpty(charge)){
-            throw new RuntimeException("收费规则为空");
+            //throw new RuntimeException("收费规则为空");
+            XueChengPlusException.cast("收费规则为空");
         }
 
         //如果课程收费但价格没有填写
