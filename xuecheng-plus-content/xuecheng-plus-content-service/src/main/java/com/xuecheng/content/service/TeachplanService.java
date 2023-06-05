@@ -1,5 +1,6 @@
 package com.xuecheng.content.service;
 
+import com.xuecheng.content.model.dto.SaveTeachplanDto;
 import com.xuecheng.content.model.dto.TeachplanDto;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +22,11 @@ public interface TeachplanService {
      * @return
      */
     public List<TeachplanDto> findTeachplanTree(Long courseId);
+
+
+    /**
+     *  新增 修改 保存 课程计划
+     * @param saveTeachplanDto
+     */
+    public void saveTeachplan(SaveTeachplanDto saveTeachplanDto);
 }
